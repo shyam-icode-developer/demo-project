@@ -1,0 +1,23 @@
+<html>
+
+<head>
+    {% include 'snippets/css.html'%} {% include 'snippets/js.html'%}
+
+</head>
+
+<body>
+    <div class="container">
+        <h1> joincfe.com</h1>
+        <h4> Welcome to our Website</h4>
+        <div class="container-fluid">
+            <a href="/restaurant/">Home</a>
+            <a href="/restaurant/about">About</a>
+            <a href="/restaurant/contact">Contact</a>
+
+            {% block content%}
+            <br> Hey There !!! {% endblock %}
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<html>
+
+<head>
+{% load i18n %}
+</head>
+{% autoescape on %}
+
+<body>
+    <h1>Hello world!!</h1>
+    <P>This is something {{ obj}}</P>
+    <P>This is something {{ num }}</P>
+    {% if bool %}
+    <p>This is boolean Variable {{ bool }}</p>
+    {% endif %}
+    <p>List Item </p><br>
+    {% for item in list %} {% if item|divisibleby:"5" %}
+    number= {{item}} digit= {{ item|get_digit:"2"}}<br>
+    <tr>
+        <td class="{% cycle 'row1' 'row2' as rowcolors %}"></td>
+        <td class="{{ rowcolors }}"> Number is even : {{ item }}
+            <br>
+        </td>
+    </tr>
+    <tr>
+        <td class="{% cycle rowcolors %}"></td>
+        {% endif %}
+        <td class="{{ rowcolors }}"> {{ item }}</td>
+    </tr>
+
+    <br> {% endfor%} It is {% now "jS  F Y H:i:s D " %}<br>
+    {% now "D" as day %}
+    Today : {{ day }}<br>
+    It is the {% now "jS \o\f F" %}<br>
+    {% now "Y" as current_year %}<br>
+{% blocktrans %}Copyright {{ current_year }}{% endblocktrans %}<br>
+<br>url :{{ url }}<br/>
+ url -list {{ url|make_list  }}
+    <script>
+
+    </script>
+</body>
+{% endautoescape %}
+
+</html>
